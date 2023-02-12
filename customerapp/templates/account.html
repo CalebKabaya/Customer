@@ -15,7 +15,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">New Business</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Update Balance</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -24,7 +24,7 @@
           <form action="" method="post" enctype="multipart/form-data" novalidate >
             {% csrf_token%}
             {{form|crispy}}
-            <button type="submit" class="btn btn-sm btn-success">Save Business</button>
+            <button type="submit" class="btn btn-sm btn-success">Save</button>
             <button type="button" class="btn btn-sm btn-outline-danger " data-dismiss="modal">
               Close
             </button>
@@ -39,7 +39,9 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
+                      <a href="{% url 'customers' %}">
                         <h2>Customers <b>Management</b></h2>
+                      </a>
                     </div>
                     <div class="col-sm-7">
                         <!-- <a href="/addcustomers/" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a> -->
@@ -63,7 +65,7 @@
                     <tr>
 
                         <td>{{ customers.id}}</td>
-                        <td><a href="#"><img src="{{customer.image.url}}" class="avatar" alt="Avatar"> {{ customers.name}}</a></td>
+                        <td><a href="#"><img src="{{customers.image.url}}" class="avatar" alt="Avatar"> {{ customers.name}}</a></td>
                         <td>{{ customers.email }}</td>                        
                         <td>{{ customers.address }}</td>
                         <td><span class="status text-success">&bull;</span> Active</td>
