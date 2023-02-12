@@ -226,9 +226,3 @@ table.table .avatar {
     -moz-transition: all 0.2s;
     transition: all 0.2s;
 }
-.avatar {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
