@@ -9,9 +9,14 @@ from .forms import AddCustomerForm,AccountForm
 # Create your views here.
 
 def customers(request):
-    response= requests.get('http://customer-production.up.railway.app/api/customer/')
-    customers=response.json()
-    return render(request,'customer.html',{'customers':customers})
+    customers=Customer.objects.all()
+    context= {
+       'customers':customers
+
+    }
+    # response= requests.get('http://customer-production.up.railway.app/api/customer/')
+    # customers=response.json()
+    return render(request,'customer.html',context)
 
 def addcustomer(request):
 
