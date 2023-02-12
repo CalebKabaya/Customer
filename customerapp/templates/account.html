@@ -48,8 +48,8 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                      <a href="{% url 'customers' %}">
-                        <h2>Customers <b>Management</b></h2>
+                      <a href="{% url 'customers' %}" >
+                        <h2 class="alink">Customers <b>Management</b></h2>
                       </a>
                     </div>
                     <div class="col-sm-7">
@@ -65,7 +65,7 @@
                         <th>Name</th>						
                         <th>Email</th>
                         <th>Address</th>
-                        <th>Status</th>
+                        <th>Account Number</th>
                         <th>Account Balance</th>
                     </tr>
                 </thead>
@@ -77,12 +77,8 @@
                         <td><a href="#"><img src="{{customers.image.url}}" class="avatar" alt="Avatar"> {{ customers.name}}</a></td>
                         <td>{{ customers.email }}</td>                        
                         <td>{{ customers.address }}</td>
-                        <td><span class="status text-success">&bull;</span> Active</td>
-                        <!-- <td>
-                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                        </td> -->
-                        <td>{{ account.balance }}</td>
+                        <td><span class="status text-success">&bull;</span> {{ customers.account_number }}</td>
+                        <td>{{balance.balance }}</td>
 
 
                     </tr>

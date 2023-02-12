@@ -226,6 +226,10 @@ table.table .avatar {
     -moz-transition: all 0.2s;
     transition: all 0.2s;
 }
-a {
+.alink{
+    color:white;
+    text-decoration: none;
+}
+.alink:hover{
     text-decoration: none;
 }

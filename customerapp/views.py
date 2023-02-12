@@ -10,13 +10,13 @@ from .forms import AddCustomerForm,AccountForm
 
 def customers(request):
     customers=Customer.objects.all()
-    context= {
-       'customers':customers
+    # context= {
+    #    'customers':customers
 
-    }
-    # response= requests.get('http://customer-production.up.railway.app/api/customer/')
-    # customers=response.json()
-    return render(request,'customer.html',context)
+    # }
+    response= requests.get('http://customer-production.up.railway.app/api/customer/')
+    customers=response.json()
+    return render(request,'customer.html',{'customers':customers})
 
 def addcustomer(request):
 
@@ -83,7 +83,9 @@ def delete(request, cust_id):
 
 def viewcustomer(request,customer_id):
     customers = Customer.objects.get(id=customer_id)
-    account = Account.objects.filter(customer=customers)
+    # account = Account.objects.filter(customer=customers)
+    balance=Account.objects.all() 
+
     # mypost=Post.objects.filter(hood=customer)
 
     if request.method == 'POST':
@@ -104,7 +106,7 @@ def viewcustomer(request,customer_id):
 
     context = {
         'form':form,
-        'account':account,
+        'balance':balance,
         'customers':customers
     }
     return render(request,'account.html', context) 

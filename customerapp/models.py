@@ -1,13 +1,16 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+    # account_number= models.IntegerField(default=0)
 
 # Create your models here.
 class Customer(models.Model):
     name=models.CharField(max_length=100)
     email=models.EmailField(max_length=100, unique=True)
-    address=models.TextField()
+    address=models.CharField(max_length=100)
     image=CloudinaryField('image',blank=True)
+    account_number= models.IntegerField(default=0)
+
 
 
     def __str__(self):

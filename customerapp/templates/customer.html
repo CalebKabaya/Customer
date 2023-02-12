@@ -33,7 +33,7 @@
                         <th>#</th>
                         <th>Name</th>						
                         <th>Email</th>
-                        <th>Address</th>
+                        <th>Account Number</th>
                         <th>Status</th>
                         <th>View Customer</th>
                     </tr>
@@ -47,10 +47,10 @@
                         <td>{{ customer.id}}</td>
                         <td><a href="{% url 'viewcustomer' customer_id=customer.id %}"><img src="{{customer.image.url}}" class="avatar" alt="Avatar"> {{ customer.name}}</a></td>
                         <td>{{ customer.email }}</td>                        
-                        <td>{{ customer.address }}</td>
+                        <td>{{ customer.account_number }}</td>
                         <td><span class="status text-success">&bull;</span> Active</td>
                         <td>
-                            <a href="#" class="view" title="view" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="{% url 'viewcustomer' customer_id=customer.id %}" class="view" title="view" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                             <a href="{% url 'delete_cust'  customer.id %}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                         </td>
 
