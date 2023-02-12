@@ -12,10 +12,13 @@ router.register(r'cards',CardViewSet,basename='Cards')
 
 
 urlpatterns=[
-    re_path('api/', include(router.urls)),
+    re_path('api/', include(router.urls), name='api'),
     re_path('^$',views.customers, name='customers'),
     re_path('addcustomers/',views.addcustomer, name='addcustomers'),
-    re_path(r'^viewcustomer/(?P<customer_id>\d+)?$', views.viewcustomer, name='viewcustomer'), 
+    re_path(r'^viewcustomer/(?P<customer_id>\d+)?$', views.viewcustomer, name='viewcustomer'),
+    re_path(r'^delete/(?P<cust_id>\d+)?$', views.delete, name='delete_cust'),
+ 
+
 
     # path('api/account/', views.Account.as_view(), name="accounts"),
 

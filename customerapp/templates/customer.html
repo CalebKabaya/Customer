@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-7">
                         <a href="/addcustomers/" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a>
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>						
+                        <a href="/api/" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>View Apis</span></a>						
                     </div>
                 </div>
             </div>
@@ -50,8 +50,8 @@
                         <td>{{ customer.address }}</td>
                         <td><span class="status text-success">&bull;</span> Active</td>
                         <td>
-                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="#" class="view" title="view" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="{% url 'delete_cust'  customer.id %}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                         </td>
 
                     </tr>

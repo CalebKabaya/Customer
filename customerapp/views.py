@@ -76,6 +76,11 @@ def addcustomer(request):
     }
     return render(request,'addcustomer.html', context) 
 
+def delete(request, cust_id):
+  customer =Customer.objects.get(pk=cust_id)
+  customer.delete()
+  return render(request,'customer.html') 
+
 def viewcustomer(request,customer_id):
     customers = Customer.objects.get(id=customer_id)
     account = Account.objects.filter(customer=customers)
