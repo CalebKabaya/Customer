@@ -17,7 +17,10 @@ urlpatterns=[
     re_path('addcustomers/',views.addcustomer, name='addcustomers'),
     re_path(r'^viewcustomer/(?P<customer_id>\d+)?$', views.viewcustomer, name='viewcustomer'),
     re_path(r'^delete/(?P<cust_id>\d+)?$', views.delete, name='delete_cust'),
- 
+    # re_path(r'^addcard/(?P<customer_id>\d+)?$', views.addcard, name='addcard'),
+    re_path('addcard/',views.addcard, name='addcard'),
+
+
 
 
     # path('api/account/', views.Account.as_view(), name="accounts"),

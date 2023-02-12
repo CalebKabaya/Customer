@@ -5,7 +5,7 @@ from .models import Customer,Account,Cards
 from .serializers import CustomerSerializer,CardSerializer,AccountSerializer
 import requests
 from django.shortcuts import redirect
-from .forms import AddCustomerForm,AccountForm
+from .forms import AddCustomerForm,AccountForm,CardForm
 # Create your views here.
 
 def customers(request):
@@ -83,8 +83,9 @@ def delete(request, cust_id):
 
 def viewcustomer(request,customer_id):
     customers = Customer.objects.get(id=customer_id)
+    # cards = Cards.objects.get(id=customer_id)
     # account = Account.objects.filter(customer=customers)
-    balance=Account.objects.all() 
+    # balance=Account.objects.all() 
 
     # mypost=Post.objects.filter(hood=customer)
 
@@ -104,13 +105,39 @@ def viewcustomer(request,customer_id):
     except Account.DoesNotExist:
         posts=None
 
+       
+
     context = {
         'form':form,
-        'balance':balance,
-        'customers':customers
+        'posts':posts,
+        'customers':customers,
+       
     }
     return render(request,'account.html', context) 
+def addcard(request,):
+    cards = Cards.objects.all()
+    if request.method == 'POST':
+        form = CardForm(request.POST, request.FILES)
+        if form.is_valid():
+            newcard = form.save(commit=False)
+            newcard.user=request.user
+            newcard.save()
+            
+        return redirect('/')
+    else:
+        form = CardForm()
+    try:
+       cards=Cards.objects.all() 
+       cards=cards[::-1]
+    except Cards.DoesNotExist:
+        cards=None
 
+
+    context = {
+        'form':form,
+        'cards':cards
+    }
+    return render(request,'account.html', context) 
 # def create_post(request,customer_id):
 
 #     hood = NeighbourHood.objects.get(id=customer_id)

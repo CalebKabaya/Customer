@@ -24,7 +24,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Update Balance</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Top Up</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -42,6 +42,10 @@
       </div>
     </div>
     </div>
+    <div class="modal fade" id="ModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+   
+    </div>
   <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -53,8 +57,11 @@
                       </a>
                     </div>
                     <div class="col-sm-7">
-                        <!-- <a href="/addcustomers/" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a> -->
+                      <a href="{% url 'addcard' %}" class="btn btn-sm btn-outline-danger mb-4 mr-4" ><i class="material-icons">&#xE147;</i> <span>Add Bank Account</span></a>
+                      <!-- <a href="/addcustomers/" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a> -->
                         <a href="" class="btn btn-sm btn-outline-danger mb-4 mr-4" data-toggle="modal" data-target="#ModalCenter"><i class="material-icons">&#xE147;</i> <span>Update Customer Balance</span></a>
+                        <!-- <a href="{% url 'addcard' %}" class="btn btn-sm btn-outline-danger mb-4 mr-4" ><i class="material-icons">&#xE147;</i> <span>Add Bank Account</span></a> -->
+
                     </div>
                 </div>
             </div>
@@ -78,7 +85,7 @@
                         <td>{{ customers.email }}</td>                        
                         <td>{{ customers.address }}</td>
                         <td><span class="status text-success">&bull;</span> {{ customers.account_number }}</td>
-                        <td>{{balance.balance }}</td>
+                        <td>{{posts.balance }}</td>
 
 
                     </tr>

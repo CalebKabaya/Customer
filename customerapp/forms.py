@@ -12,6 +12,7 @@ class AccountForm(forms.ModelForm):
     class Meta:
         model=Account
         fields=('customer','balance',)
+        
 class CardForm(forms.ModelForm):
     class Meta:
         model=Cards

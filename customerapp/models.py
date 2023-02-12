@@ -25,9 +25,9 @@ class Account(models.Model):
 
 class Cards(models.Model):
     account=models.ForeignKey(Account,on_delete=models.CASCADE) 
-    card_number=models.CharField(max_length=16)
+    card_number=models.CharField(max_length=16,blank=True, null=True)
 
     def __str__(self):
-        return self.card_number       
+        return str(self.card_number)       
 
 
