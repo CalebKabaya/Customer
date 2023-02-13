@@ -10,13 +10,13 @@ from .forms import AddCustomerForm,AccountForm,CardForm
 
 def customers(request):
     customers=Customer.objects.all()
-    # context= {
-    #    'customers':customers
+    context= {
+       'customers':customers
 
-    # }
-    response= requests.get('http://customer-production.up.railway.app/api/customer/')
-    customers=response.json()
-    return render(request,'customer.html',{'customers':customers})
+    }
+    # response= requests.get('http://customer-production.up.railway.app/api/customer/')
+    # customers=response.json()
+    return render(request,'customer.html',context)
 
 def addcustomer(request):
 
